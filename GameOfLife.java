@@ -73,10 +73,12 @@ public class GameOfLife {
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
 		String str = "";
-		for(int i = 0; i < rows; i++){
-			for(int j = 0; j < str.length(); j++){
+		for(int i = 1; i < rows+1; i++){
+			for(int j = 1; j < str.length() && j <= cols; j++){
 				if(str.charAt(j) == 'x'){
 					board[i][j] = 1;
+				} else {
+					board[i][j] = 0;
 				}
 			}
 		} 
