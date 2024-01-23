@@ -72,8 +72,15 @@ public class GameOfLife {
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
-		//// Replace the following statement with your code.
-		return null;
+		String str = "";
+		for(int i = 0; i < rows; i++){
+			for(int j = 0; j < str.length(); j++){
+				if(str.charAt(j) == 'x'){
+					board[i][j] = 1;
+				}
+			}
+		} 
+		return board;
 	}
 	
 	// Creates a new board from the given board, using the rules of the game.
