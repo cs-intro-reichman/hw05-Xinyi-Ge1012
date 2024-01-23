@@ -74,8 +74,8 @@ public class GameOfLife {
 		int[][] board = new int[rows + 2][cols + 2];
 		String str = "";
 		for(int i = 1; i < rows+1; i++){
-			for(int j = 1; j < str.length() && j <= cols; j++){
-				if(str.charAt(j) == 'x'){
+			for(int j = 1; j <= str.length() && j <= cols; j++){
+				if(str.charAt(j-1) == 'x'){
 					board[i][j] = 1;
 				} else {
 					board[i][j] = 0;
@@ -130,14 +130,15 @@ public class GameOfLife {
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	public static int count(int[][] board, int i, int j) {
 		int count = 0;
-		for(int rows = i -1; rows <= i + 1; rows++){
-			for(int columns = j -1; columns <= j + 1; columns++){
-				if(board[rows][columns] == 1 && !(rows == i && columns == j)){
-					count++;
+		for (int x = -1; x <= 1; x++) {
+		 for (int y = -1; y <= 1; y++) {
+			if (((i + x) < board.length) && ((j + y) < board[0].length)) {
+				if (!((x == 0) && (y == 0)) && board[i + x][j + y] == 1) {
+							count++;
+					}
 				}
 			}
 		}
-		
 		return count;
 	}
 	
