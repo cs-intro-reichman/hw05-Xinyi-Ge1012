@@ -71,30 +71,30 @@ public class GameOfLife {
 		In in = new In(fileName); // Constructs an In object for reading the input file
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
-		int[][] board = new int[rows + 2][cols + 2];
+		int[][] newboard = new int[rows + 2][cols + 2];
 		String str = "";
 		for(int i = 1; i < rows+1; i++){
 			for(int j = 1; j <= str.length() && j <= cols; j++){
 				if(str.charAt(j-1) == 'x'){
-					board[i][j] = 1;
+					newboard[i][j] = 1;
 				} else {
-					board[i][j] = 0;
+					newboard[i][j] = 0;
 				}
 			}
 		} 
-		return board;
+		return newboard;
 	}
 	
 	// Creates a new board from the given board, using the rules of the game.
 	// Uses the cellValue(board,i,j) function to compute the value of each 
 	// cell in the new board. Returns the new board.
 	public static int[][] evolve(int[][] board) {
-		int columns = board[0].length-2;
-		int rows = board.length-2;
-		int[][] newboard = new int[rows + 2][columns + 2];
-		for(int i = 1; i < rows; i++){
-			for(int j = 1; j < columns; j++){
-			  newboard[i][j] = cellValue(newboard, i, j) == 1 ? 1 : 0;
+		int columns = board[0].length;
+		int rows = board.length;
+		int[][] newboard = new int[rows][columns];
+		for(int i = 1; i < rows-1; i++){
+			for(int j = 1; j < columns-1; j++){
+			  newboard[i][j] = cellValue(newboard, i, j);
 			}
 		}
 		return newboard;
