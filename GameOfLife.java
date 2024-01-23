@@ -28,13 +28,9 @@ public class GameOfLife {
 	// the count and cellValue functions.
 	private static void test2(String fileName) {
 		int[][] board = read(fileName);
-           for(int i = 0; i < board.length; i++){
-			for(int j = 0; j < (board[j].length - 1); j++){
-				System.out.println(count(board, i, j) + " " + (cellValue(board, i, j)  == 1 ? "alive" : "dead"));
-			}
-
-		   }
-	
+		System.out.println("neighbors " + count(board, 3, 2) );
+		System.out.println("next cell " + cellValue(board, 3, 2));
+		print(board);
 
 		//// Write here code that tests that the count and cellValue functions
 		//// are working properly, and returning the correct values.
