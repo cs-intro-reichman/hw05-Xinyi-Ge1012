@@ -68,8 +68,8 @@ public class GameOfLife {
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] newboard = new int[rows + 2][cols + 2];
-		String str = "";
 		for(int i = 1; i < rows+1; i++){
+			str = in.readLine();
 			for(int j = 1; j <= str.length() && j <= cols; j++){
 				if(str.charAt(j-1) == 'x'){
 					newboard[i][j] = 1;
